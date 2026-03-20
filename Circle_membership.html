@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedPharma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./Circle_membership.css">
+</head>
+
+<body>
+    
+
+    <!-- Main Navbar -->
+     <header class="header">
+        <div class="header__top">
+            <div class="header__left">
+                <div class="logo">
+                    <div class="logo__icon">
+                        <i class="fa-solid fa-syringe" aria-hidden="true"></i>
+                    </div>
+                    <h1>MedPharma</h1>
+                </div>
+                <div class="logo__2" id="addressToggle" role="button" tabindex="0" aria-label="Open delivery location panel">
+                    <div class="map__logo">
+                        <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                    </div>
+                    <div class="address">
+                        <p>Delivery Address</p>
+                        <p>Vellore 632403 <i class="fa-solid fa-angle-down" aria-hidden="true"></i></p>
+                    </div>
+                </div>
+            </div>
+            <div class="header__search">
+                <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                <input type="text" placeholder="Search Medicines">
+            </div>
+            <div class="header__right">
+                <button class="icon-btn" id="cartToggle" aria-label="cart">
+                    <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+                    <span class="badge" id="cartBadge">0</span>
+                </button>
+                <button class="login-btn" id="loginToggle" type="button">
+                    Login
+                    <i class="fa-regular fa-user" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+
+        <nav class="header__mid" aria-label="Quick links">
+            <a href="index.html">Buy Medicines</a>
+            <a href="">Find Doctors</a>
+            <a href="lab_tests.html">Lab Tests</a>
+            <a href="Circle_membership.html">Circle Membership</a>
+            <a href="">Contact Us</a>
+        </nav>
+
+    <!-- Small navbar -->
+    <nav class="bg-[#F15A24] flex justify-center ">
+        <ul class=" text-[#FFF9F3] font-semibold flex items-center justify-around p-2  ">
+            <li><a href="#benefits" class="m-2 p-1 hover:border border-[#FFF9F3] rounded-2xl  ">Circle Benefits </a>
+            </li>
+            <li> <a href="#plans" class="m-2 p-1 hover:border border-[#FFF9F3] rounded-2xl ">Plans For You</a></li>
+            <li> <a href="#review" class="m-2 p-1 hover:border border-[#FFF9F3] rounded-2xl ">Membership Reviews</a>
+            </li>
+            <li><a href="#faqs" class="m-2 p-1 hover:border border-[#FFF9F3] rounded-2xl ">FAQs </a></li>
+        </ul>
+    </nav>
+
+    <!-- section - 1 -->
+    <div class="bg-[#FFF9F3] flex items-center justify-center">
+        <img src="./image/logo.png" alt="" class="h-50 w-80 m-5 p-5">
+
+        <h1 class="text-3xl font-semibold ">
+            Premium perks + <br>
+            Assured savings
+        </h1>
+    </div>
+
+    <!-- section 2 Posters-->
+    <div class="grid grid-cols-2 justify-center gap-4 md:flex flex-wrap m-5">
+        <img src="./image/img2.png" class="w-full md:w-1/5 h-auto">
+        <img src="./image/img3.png" class="w-full md:w-1/5 h-auto">
+        <img src="./image/img1.png" class="w-full md:w-1/5 h-auto">
+        <img src="./image/img4.png" class="w-full md:w-1/5 h-auto">
+    </div>
+    <!-- Section - 3 Your Circle Benefits -->
+    <div>
+        <h1 id="benefits" class=" grid grid-cols-2  text-3xl font-bold md:flex flex-col m-3">Your Circle Benefits</h1>
+        <div class="grid grid-cols-2 justify-center gap-4 md:grid-cols-4 md:mx-20 m-5">
+            <div class="border">
+                <img src="./image/bf1.png" alt="" class="w-full md:w-full h-auto">
+                <h2 class="font-bold bg-black text-white p-2">Pharmacy</h2>
+                <p class="border-b-2 m-1 p-1">Save 15% on medicines</p>
+                <p class="border-b-2 m-1 p-1">Save Upto 5% on other products</p>
+                <p class=" m-1 p-1">Zero Delivery Fees</p>
+            </div>
+            <div class="border">
+                <img src="./image/bf2.png" alt="" class="w-full md:w-full h-auto">
+                <h2 class="font-bold bg-black text-white p-2">Free Health Test</h2>
+                <p class="border-b-2 m-1 p-1">Free test worth Rs 499</p>
+                <p class="border-b-2 m-1 p-1">CBC/TSH/HbA1c</p>
+                <p class=" m-1 p-1">Only with 12m plan</p>
+            </div>
+            <div class="border">
+                <img src="./image/bf3.png" alt="" class="w-full md:w-full h-auto">
+                <h2 class="font-bold bg-black text-white p-2">Doctor on Call</h2>
+                <p class="border-b-2 m-1 p-1">24/7 MedPharma Doctors</p>
+                <p class="border-b-2 m-1 p-1">Virtual Appointments</p>
+                <p class=" m-1 p-1">Connect in minutes</p>
+            </div>
+            <div class="border">
+                <img src="./image/bf4.png" alt="" class="w-full md:w-full h-auto">
+                <h2 class="font-bold bg-black text-white p-2">Insurance</h2>
+                <p class="border-b-2 m-1 p-1">1L accidental cover</p>
+                <p class="border-b-2 m-1 p-1">Only with 12L plan</p>
+                <p class=" m-1 p-1">Terms & Condition applied</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Section -4 Subscription -->
+
+    <div class="bg-black text-white p-8">
+
+        <h2 class="text-3xl font-bold mb-6">Plans For You</h2>
+
+        <div class="flex flex-wrap gap-6">
+
+            <!-- Card 1 -->
+            <div class="plan flex-1 min-w-[250px] cursor-pointer 
+                bg-gray-800 rounded-2xl p-5 flex justify-between items-center border-2 border-transparent">
+
+                <div>
+                    <h3 class="font-bold text-lg">
+                        3 Months
+                        <span class="line-through text-gray-400 ml-2">₹199</span>
+                        <span class="ml-2">₹99</span>
+                    </h3>
+                    <p class="text-sm">Only ₹33/month</p>
+                </div>
+
+                <div class="circle w-5 h-5 border-2 border-white rounded-full flex items-center justify-center">
+                    <div class="dot w-2.5 h-2.5 bg-orange-500 rounded-full hidden"></div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="plan flex-1 min-w-[250px] cursor-pointer 
+                bg-gray-800 rounded-2xl p-5 flex justify-between items-center border-2 border-transparent">
+                <div>
+                    <h3 class="font-bold text-lg">
+                        6 Months
+                        <span class="line-through text-gray-400 ml-2">₹399</span>
+                        <span class="ml-2">₹149</span>
+                    </h3>
+                    <p class="text-sm">Only ₹24/month</p>
+                </div>
+
+                <div class="circle w-5 h-5 border-2 border-white rounded-full flex items-center justify-center">
+                    <div class="dot w-2.5 h-2.5 bg-orange-500 rounded-full hidden"></div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="plan flex-1 min-w-[250px] cursor-pointer 
+                bg-gray-800 rounded-2xl p-5 flex justify-between items-center border-2 border-transparent">
+                <div>
+                    <h3 class="font-bold text-lg">
+                        12 Months
+                        <span class="line-through text-gray-400 ml-2">₹599</span>
+                        <span class="ml-2">₹199</span>
+                    </h3>
+                    <p class="text-sm">Only ₹16/month</p>
+                </div>
+
+                <div class="circle w-5 h-5 border-2 border-white rounded-full flex items-center justify-center">
+                    <div class="dot w-2.5 h-2.5 bg-orange-500 rounded-full hidden"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <button
+            class="mt-8 w-full bg-gradient-to-r from-orange-500 to-yellow-400 py-4 rounded-xl font-semibold text-lg">
+            Join Circle
+        </button>
+
+    </div>
+
+    <!-- Section -5 Marketing -->
+
+
+    <div class="  flex justify-center gap-4 p-5 md:text-4xl">
+
+        <div
+            class="bg-[#F15A24] text-[#FFF9F3] flex w-1/3 border border-[#FFF9F3] rounded-2xl justify-center items-center p-4">
+            <!-- content -->
+            <div class=" p-2 m-6"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke-width="1.5" stroke="currentColor" class="w-20 ">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M15.182 15.182a4.5 4.5 0 0 1-6.364 0M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Z" />
+
+                </svg>
+            </div>
+
+            <div class=" p-1">
+                <h2 class="text-2xl font-bold ">1 Crore+ </h2>
+                <p>Happy Circle Members</p>
+            </div>
+        </div>
+
+        <div
+            class="bg-[#F15A24] text-[#FFF9F3] flex w-1/3 border border-[#FFF9F3] rounded-2xl justify-center items-center p-4">
+            <!-- content -->
+            <div class=" p-2 m-6"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke-width="1.5" stroke="currentColor" class="w-20">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M15 8.25H9m6 3H9m3 6-3-3h1.5a3 3 0 1 0 0-6M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+
+            </div>
+
+            <div class="m-1 p-1">
+                <h2 class="text-2xl font-bold">&#8377;3000 </h2>
+                <p>Average Savings</p>
+            </div>
+        </div>
+
+        <div
+            class="bg-[#F15A24] text-[#FFF9F3] flex w-1/3 border border-[#FFF9F3] rounded-2xl justify-center items-center p-4">
+            <!-- content -->
+            <div class=" p-2 m-6"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke-width="1.5" stroke="currentColor" class="w-20">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
+                </svg>
+
+            </div>
+
+            <div class="m-1 p-1">
+                <h2 class="text-2xl font-bold">95% </h2>
+                <p>Before-time Delivery</p>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    <!-- Section - 6 Member Review -->
+
+
+    <div id="review" class="m-5">
+        <h2 class="text-3xl font-bold m-3">Member's Review</h2>
+        <div class="flex">
+            <div class="border w-200 m-2 p-2">
+                <p>"Joining Circle has been a game-changer for me and my little one. With access to a wide range of
+                    women's and baby products at best prices, it's been a lifesaver. Plus, their priority service
+                    ensures I always receive my orders ahead of schedule."</p>
+                <h3 class="font-bold  my-1">Ridhima Saha, 34 years old</h3>
+                <p class="text-[#F15A24]">Saved Rs.2180 with CIRCLE</p>
+            </div>
+            <div class="border w-200 m-2 p-2">
+                <p>"Joining Circle has been a game-changer for me and my little one. With access to a wide range of
+                    women's and baby products at best prices, it's been a lifesaver. Plus, their priority service
+                    ensures I always receive my orders ahead of schedule."</p>
+                <h3 class="font-bold  my-1">Ridhima Saha, 34 years old</h3>
+                <p class="text-[#F15A24]">Saved Rs.2180 with CIRCLE</p>
+            </div>
+            <div class="border w-200 m-2 p-2">
+                <p>"Joining Circle has been a game-changer for me and my little one. With access to a wide range of
+                    women's and baby products at best prices, it's been a lifesaver. Plus, their priority service
+                    ensures I always receive my orders ahead of schedule."</p>
+                <h3 class="font-bold  my-1">Ridhima Saha, 34 years old</h3>
+                <p class="text-[#F15A24]">Saved Rs.2180 with CIRCLE</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section -7 FAQs -->
+
+    <div id="faqs" class="m-5">
+        <h2 class="text-3xl font-bold m-3">FAQs</h2>
+
+        <div>
+
+            <div class="m-5">
+                <div class="ques border-b-2 flex justify-between cursor-pointer">
+                    <h4>1. What is the MedPharma 24|7 Circle membership programme?</h4>
+                    <svg class="size-6 transition-transform"></svg>
+                </div>
+                <p class="ans hidden text-gray-500">
+                    MedPharma Circle membership is a one-of-its-kind membership designed to deliver the best care
+                    and value to
+                    its subscribers. Once you sign up with the plan, you will receive benefits such as access to MedPharma
+                    doctors,
+                    cashback on medicines & lab tests, free home delivery, and discounts on select online doctor
+                    consultations.
+                </p>
+            </div>
+
+            <div class="m-5">
+                <div class="ques border-b-2 flex justify-between cursor-pointer">
+                    <h4>2. How do I sign up for Circle membership?</h4>
+                    <svg class="size-6 transition-transform"></svg>
+                </div>
+                <p class="ans hidden text-gray-500">
+                    It's simple! If you're a part of MedPharma 24|7 already, you can click on the link above and sign up.
+                    If you're
+                    new to MedPharma 24|7, download the app today and get started. In addition, you can sign up for Circle
+                    membership
+                    from MedPharma pharmacy stores & other select partners & corporates.
+                </p>
+            </div>
+
+            <div class="m-5">
+                <div class="ques border-b-2 flex justify-between cursor-pointer">
+                    <h4>3. How many plans are there in Circle membership?</h4>
+                    <svg class="size-6 transition-transform"></svg>
+                </div>
+                <p class="ans hidden text-gray-500">
+                    Circle primarily offers a plan with a 12-month duration. In addition, there might be other
+                    promotional &
+                    corporate plans available to select users.
+                </p>
+            </div>
+
+            <div class="m-5">
+                <div class="ques border-b-2 flex justify-between cursor-pointer">
+                    <h4>4. Is 12-month membership better than other plans?</h4>
+                    <svg class="size-6 transition-transform"></svg>
+                </div>
+                <p class="ans hidden text-gray-500">
+                    Yes, it's much more cost effective than any other plan. Also, you will get a free health check & Rs.
+                    1 lakh
+                    accidental insurance cover with the 12-month paid plan.
+                </p>
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="site-footer__main">
+            <div class="site-footer__brand">
+                <div class="logo">
+                    <div class="logo__icon">
+                        <i class="fa-solid fa-syringe" aria-hidden="true"></i>
+                    </div>
+                    <h2>MedPharma</h2>
+                </div>
+                <p>
+                    Your trusted online pharmacy for medicines, wellness products, personal care, and daily health
+                    essentials with fast delivery and genuine quality.
+                </p>
+                <div class="site-footer__social">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+                </div>
+            </div>
+
+            <div class="site-footer__links">
+                <h3>Quick Links</h3>
+                <a href="#">Home</a>
+                <a href="#">About Us</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Track Order</a>
+            </div>
+
+            <div class="site-footer__links">
+                <h3>Categories</h3>
+                <a href="#">Medicines</a>
+                <a href="#">Health Devices</a>
+                <a href="#">Personal Care</a>
+                <a href="#">Supplements</a>
+            </div>
+
+            <div class="site-footer__links">
+                <h3>Customer Support</h3>
+                <a href="#">FAQs</a>
+                <a href="#">Shipping Policy</a>
+                <a href="#">Return Policy</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+
+            <div class="site-footer__contact">
+                <h3>Contact</h3>
+                <p><i class="fa-solid fa-phone" aria-hidden="true"></i> +91 98765 43210</p>
+                <p><i class="fa-solid fa-envelope" aria-hidden="true"></i> support@medpharma.com</p>
+                <p><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Chennai, Tamil Nadu, India</p>
+            </div>
+        </div>
+
+        <div class="site-footer__bottom">
+            <p>&copy; 2026 MedPharma. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+
+
+
+
+    <script src="./Circle_membership.js">
+       
+    </script>
+</body>
+
+</html>
