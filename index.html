@@ -50,11 +50,11 @@
         </div>
 
         <nav class="header__mid" aria-label="Quick links">
-            <a href="#">Buy Medicines</a>
-            <a href="#">Find Doctors</a>
-            <a href="#">Lab Tests</a>
-            <a href="#">Circle Membership</a>
-            <a href="#">Contact Us</a>
+            <a href="#buy-medicines">Buy Medicines</a>
+            <a href="#doctorOfferCard">Find Doctors</a>
+            <a href="#labOfferCard">Lab Tests</a>
+            <a href="#circle-membership">Circle Membership</a>
+            <a href="#contact-us">Contact Us</a>
         </nav>
 
         <nav class="header__bottom" aria-label="Product categories">
@@ -764,7 +764,8 @@
         <button type="button" id="immunityOk">Understood</button>
     </div>
 
-    <section class="banner" id="mainBanner">
+    <div id="buy-medicines" aria-hidden="true" style="scroll-margin-top:120px;height:0;overflow:hidden"></div>
+    <section class="banner" id="mainBanner" style="scroll-margin-top:120px">
         <button class="banner__arrow banner__arrow--left" id="bannerPrev" type="button" aria-label="Previous banner">
             <i class="fa-solid fa-angle-left" aria-hidden="true"></i>
         </button>
@@ -894,7 +895,7 @@
             
         </a>
 
-        <a class="promo-card promo-card--violet" href="#" id="doctorOfferCard">
+        <a class="promo-card promo-card--violet" href="#" id="doctorOfferCard" style="scroll-margin-top:120px">
             <div class="promo-card__icon"><i class="fa-solid fa-stethoscope"></i></div>
             <div class="promo-card__text">
                 <h3>Doctor Appointment</h3>
@@ -912,7 +913,7 @@
             
         </a>
 
-        <a class="promo-card promo-card--pink" href="#" id="labOfferCard">
+        <a class="promo-card promo-card--pink" href="#" id="labOfferCard" style="scroll-margin-top:120px">
             <div class="promo-card__icon"><i class="fa-solid fa-vials"></i></div>
             <div class="promo-card__text">
                 <h3>Lab Tests</h3>
@@ -1579,7 +1580,7 @@
         </div>
     </section>
 
-    <section class="pharmacy-info">
+    <section class="pharmacy-info" id="circle-membership" style="scroll-margin-top:120px">
         <h2>EFFORTLESS ONLINE MEDICINE ORDERS AT MedPharma</h2>
         <p>
             Because ordering medicines online need not be complicated but rather a cakewalk. At MedPharma we ensure
@@ -1658,7 +1659,7 @@
         </details>
     </section>
 
-    <footer class="site-footer">
+    <footer class="site-footer" id="contact-us" style="scroll-margin-top:120px">
         <div class="site-footer__main">
             <div class="site-footer__brand">
                 <div class="logo">
@@ -1683,7 +1684,7 @@
                 <h3>Quick Links</h3>
                 <a href="#">Home</a>
                 <a href="#">About Us</a>
-                <a href="#">Contact Us</a>
+                <a href="#contact-us">Contact Us</a>
                 <a href="#">Track Order</a>
             </div>
 
