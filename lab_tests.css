@@ -469,11 +469,12 @@ button {
 
 .nav-links {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     gap: 0;
     padding: 0 40px;
     background-color: #fffaf2;
     border: none;
+    font-size: bold;
 }
 
 .nav-links a {
