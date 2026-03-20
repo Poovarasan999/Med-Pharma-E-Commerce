@@ -474,7 +474,7 @@ button {
     padding: 0 40px;
     background-color: #fffaf2;
     border: none;
-    font-size: bold;
+    font-weight:600;
 }
 
 .nav-links a {
