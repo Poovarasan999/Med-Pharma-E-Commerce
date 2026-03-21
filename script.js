@@ -120,7 +120,6 @@ var buyMedicineClose = document.getElementById("buyMedicineClose");
 var buyMedicineSearch = document.getElementById("buyMedicineSearch");
 var buyMedicineNoResult = document.getElementById("buyMedicineNoResult");
 var buyMedicineFilters = buyMedicineModal.getElementsByClassName("buy-medicine-filter");
-var buyMedicineCards = buyMedicineModal.getElementsByClassName("buy-medicine-card");
 
 // --- Variables: Cart totals & list (modal UI) ---
 var cartBadge = document.getElementById("cartBadge");
@@ -299,9 +298,9 @@ function filterBuyMedicineProducts() {
     }
 }
 
-function addBuyMedicineCardToCart(cardElement) {
+function addBuyMedicineCardToCart(cardElement, buttonElement) {
     var titleElements = cardElement.getElementsByClassName("buy-medicine-card__title");
-    var priceElements = cardElement.getElementsByTagName("p");
+    var priceElements = cardElement.getElementsByClassName("buy-medicine-card__price");
     var itemName = "";
     var priceText = "";
     var priceValue = 0;
@@ -325,8 +324,11 @@ function addBuyMedicineCardToCart(cardElement) {
     });
 
     updateCartDetails();
-    closeBuyMedicineModal();
-    openCartModal();
+
+    if (buttonElement) {
+        buttonElement.classList.add("buy-medicine-card__btn--added");
+        buttonElement.innerText = "Added";
+    }
 }
 
 // --- Functions: Promo strip modals ---
@@ -472,6 +474,23 @@ function closeImmunityModal() {
 }
 
 // --- Functions: Checkout ---
+function resetDealCardAddButtons() {
+    var resetIndex = 0;
+    for (resetIndex = 0; resetIndex < addButtons.length; resetIndex = resetIndex + 1) {
+        addButtons[resetIndex].classList.remove("deal-card__btn--added");
+        addButtons[resetIndex].innerText = "Add to cart";
+    }
+}
+
+function resetBuyMedicineCardButtons() {
+    var bmBtns = buyMedicineModal.getElementsByClassName("buy-medicine-card__btn");
+    var j = 0;
+    for (j = 0; j < bmBtns.length; j = j + 1) {
+        bmBtns[j].classList.remove("buy-medicine-card__btn--added");
+        bmBtns[j].innerText = "Add to cart";
+    }
+}
+
 function handleCheckoutSuccess() {
     if (cartItems.length === 0) {
         openSuccessModal("Cart Empty", "Your cart is empty. Please add items first.");
@@ -482,6 +501,8 @@ function handleCheckoutSuccess() {
     openSuccessModal("Order Placed Successful", "Order placed successfully! Thank you for shopping with MedPharma.");
     cartItems = [];
     updateCartDetails();
+    resetDealCardAddButtons();
+    resetBuyMedicineCardButtons();
 }
 
 // --- Functions: Banner (image slider) ---
@@ -594,7 +615,8 @@ function addItemToCart(buttonElement) {
     });
 
     updateCartDetails();
-    openCartModal();
+    buttonElement.classList.add("deal-card__btn--added");
+    buttonElement.innerText = "Added";
 }
 
 // --- Functions: Product sliders (horizontal scroll by section) ---
@@ -803,12 +825,24 @@ var filterIndex = 0;
 for (filterIndex = 0; filterIndex < buyMedicineFilters.length; filterIndex = filterIndex + 1) {
     buyMedicineFilters[filterIndex].addEventListener("change", filterBuyMedicineProducts);
 }
-var buyMedicineCardIndex = 0;
-for (buyMedicineCardIndex = 0; buyMedicineCardIndex < buyMedicineCards.length; buyMedicineCardIndex = buyMedicineCardIndex + 1) {
-    buyMedicineCards[buyMedicineCardIndex].addEventListener("click", function () {
-        addBuyMedicineCardToCart(this);
-    });
-}
+
+buyMedicineModal.addEventListener("click", function (event) {
+    var target = event.target;
+    var addBtn = null;
+    if (target.closest) {
+        addBtn = target.closest(".buy-medicine-card__btn");
+    }
+    if (!addBtn) {
+        return;
+    }
+    var cardEl = addBtn.closest(".buy-medicine-card");
+    if (!cardEl) {
+        return;
+    }
+    event.preventDefault();
+    event.stopPropagation();
+    addBuyMedicineCardToCart(cardEl, addBtn);
+});
 
 // --- Event listeners: Promo strip ---
 promoOfferCard.addEventListener("click", function (event) {
