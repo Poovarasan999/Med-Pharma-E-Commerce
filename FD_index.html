@@ -7,25 +7,46 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="FD_styles.css" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="#">
-        <img class="brand__logo" src="https://img.icons8.com/ios-filled/64/000000/syringe.png" alt="Medicine & Injection" />
-        <span class="brand__text">MedPharma @<br/>your door step 24/7</span>
-      </a>
-
-      <nav class="main-nav" aria-label="Primary">
-        <a href="index.html" class="nav-link ">Buy Medicines</a>
-        <a href="FD_index.html" class="nav-link ">Find Doctors</a>
-        <a href="lab_tests.html" class="nav-link">Lab Tests</a>
-        <a href="Circle_membership.html" class="nav-link">Circle Membership</a>
-        <a href="contactus.html" class="nav-link">Contact Us</a>
-      </nav>
-
+  <header class="header header--fd">
+    <div class="header__top">
+      <div class="header__left">
+        <a href="index.html" class="logo logo--home-link" aria-label="MedPharma home">
+          <div class="logo__icon">
+            <i class="fa-solid fa-syringe" aria-hidden="true"></i>
+          </div>
+          <h1>MedPharma</h1>
+        </a>
       </div>
+      <div class="header__fd-actions" aria-label="Consultation shortcuts">
+        <a href="tel:+919876543210" class="fd-header-pill fd-header-pill--outline" aria-label="Call helpline +91 98765 43210">
+          <i class="fa-solid fa-phone" aria-hidden="true"></i>
+          <span class="fd-header-pill__num">98765 43210</span>
+        </a>
+        <a href="#specialties" class="fd-header-pill fd-header-pill--outline">
+          <i class="fa-solid fa-stethoscope" aria-hidden="true"></i>
+          <span>Specialities</span>
+        </a>
+        <a href="contactus.html" class="fd-header-pill fd-header-pill--primary">
+          <i class="fa-solid fa-circle-question" aria-hidden="true"></i>
+          <span>Help</span>
+        </a>
+      </div>
+    </div>
+
+    <nav class="header__mid" aria-label="Quick links">
+      <a href="index.html">Buy Medicines</a>
+      <a href="FD_index.html">Find Doctors</a>
+      <a href="lab_tests.html">Lab Tests</a>
+      <a href="Circle_membership.html">Circle Membership</a>
+      <a href="contactus.html">Contact Us</a>
+    </nav>
   </header>
 
   <main>
@@ -174,41 +195,61 @@
     </section>
   </main>
 
-  <footer class="site-footer" id="contact">
-    <div class="container footer-grid">
-      <div class="footer-col">
-        <h3>About Med-Pharma</h3>
-        <p>Trusted healthcare platform providing online doctor consultations, lab tests, medicines, and healthcare guidance.</p>
+  <footer class="site-footer" id="contact-us" style="scroll-margin-top:120px">
+    <div class="site-footer__main">
+      <div class="site-footer__brand">
+        <div class="logo">
+          <div class="logo__icon">
+            <i class="fa-solid fa-syringe" aria-hidden="true"></i>
+          </div>
+          <h2>MedPharma</h2>
+        </div>
+        <p>
+          Your trusted online pharmacy for medicines, wellness products, personal care, and daily health
+          essentials with fast delivery and genuine quality.
+        </p>
+        <div class="site-footer__social">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+        </div>
       </div>
 
-      <div class="footer-col">
-        <h3>Services</h3>
-        <ul class="footer-list">
-          <li><a href="#specialties">Doctors by Specialty</a></li>
-          <li><a href="#lab-tests">Lab Tests at Home</a></li>
-          <li><a href="#">Online Medicines</a></li>
-          <li><a href="#">Circle Membership</a></li>
-        </ul>
+      <div class="site-footer__links">
+        <h3>Quick Links</h3>
+        <a href="index.html">Home</a>
+        <a href="#">About Us</a>
+        <a href="contactus.html">Contact Us</a>
+        <a href="#">Track Order</a>
       </div>
 
-      <div class="footer-col">
-        <h3>Resources</h3>
-        <ul class="footer-list">
-          <li><a target="_blank" rel="noreferrer">FAQs</a></li>
-          <li><a target="_blank" rel="noreferrer">Terms &amp; Conditions</a></li>
-          <li><a target="_blank" rel="noreferrer">Privacy Policy</a></li>
-          <li><a target="_blank" rel="noreferrer">Contact Us</a></li>
-        </ul>
+      <div class="site-footer__links">
+        <h3>Categories</h3>
+        <a href="#">Medicines</a>
+        <a href="#">Health Devices</a>
+        <a href="#">Personal Care</a>
+        <a href="#">Supplements</a>
       </div>
 
-      <div class="footer-col">
-        <h3>Contact Us</h3>
-        <p>Email: <a href="mailto:support@medpharma.com">support@med-pharma.com</a></p>
+      <div class="site-footer__links">
+        <h3>Customer Support</h3>
+        <a href="#">FAQs</a>
+        <a href="#">Shipping Policy</a>
+        <a href="#">Return Policy</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+
+      <div class="site-footer__contact">
+        <h3>Contact</h3>
+        <p><i class="fa-solid fa-phone" aria-hidden="true"></i> +91 98765 43210</p>
+        <p><i class="fa-solid fa-envelope" aria-hidden="true"></i> support@medpharma.com</p>
+        <p><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Chennai, Tamil Nadu, India</p>
       </div>
     </div>
 
-    <div class="footer-bottom">
-      <p>© 2026 Med-Pharma. All rights reserved.</p>
+    <div class="site-footer__bottom">
+      <p>&copy; 2026 MedPharma. All Rights Reserved.</p>
     </div>
   </footer>
 
