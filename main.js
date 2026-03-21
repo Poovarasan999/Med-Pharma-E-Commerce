@@ -90,17 +90,20 @@ function renderSpecialtyCards() {
   const grid = document.getElementById("specialtiesGrid");
   if (!grid) return;
 
+  grid.innerHTML = ""; // reset in case this runs multiple times
+
   specialties.forEach((spec) => {
     const card = document.createElement("article");
     card.className = "card";
 
     const iconUrl = spec.icon ?? defaultSpecialtyIcon;
+    const linkUrl = spec.href || "#";
 
     card.innerHTML = `
       <img class="card__icon" src="${iconUrl}" alt="${spec.title} icon" onerror="this.onerror=null;this.src='${defaultSpecialtyIcon}'" />
       <h3 class="card__title">${spec.title}</h3>
       <p class="card__subtitle">${spec.subtitle}</p>
-      <a class="card__link" href="${spec.href}" target="_blank" rel="noreferrer">Consult ${spec.title.split(" ")[0]}</a>
+      <a class="card__link" href="${linkUrl}" target="_blank" rel="noreferrer">Consult ${spec.title.split(" ")[0]}</a>
     `;
 
     grid.appendChild(card);
