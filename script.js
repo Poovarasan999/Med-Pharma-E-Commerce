@@ -298,6 +298,30 @@ function filterBuyMedicineProducts() {
     }
 }
 
+function clearButtonAddedFlashTimeout(buttonElement) {
+    var existingTimeoutId = buttonElement.getAttribute("data-flash-timeout-id");
+    if (existingTimeoutId) {
+        window.clearTimeout(parseInt(existingTimeoutId, 10));
+        buttonElement.removeAttribute("data-flash-timeout-id");
+    }
+    buttonElement.disabled = false;
+}
+
+function flashTemporaryAddedOnButton(buttonElement, addedClassName, restoreLabel) {
+    var delayMs = 800;
+    clearButtonAddedFlashTimeout(buttonElement);
+    buttonElement.disabled = true;
+    buttonElement.classList.add(addedClassName);
+    buttonElement.innerText = "Added";
+    var timeoutId = window.setTimeout(function () {
+        buttonElement.classList.remove(addedClassName);
+        buttonElement.innerText = restoreLabel;
+        buttonElement.removeAttribute("data-flash-timeout-id");
+        buttonElement.disabled = false;
+    }, delayMs);
+    buttonElement.setAttribute("data-flash-timeout-id", String(timeoutId));
+}
+
 function addBuyMedicineCardToCart(cardElement, buttonElement) {
     var titleElements = cardElement.getElementsByClassName("buy-medicine-card__title");
     var priceElements = cardElement.getElementsByClassName("buy-medicine-card__price");
@@ -326,8 +350,7 @@ function addBuyMedicineCardToCart(cardElement, buttonElement) {
     updateCartDetails();
 
     if (buttonElement) {
-        buttonElement.classList.add("buy-medicine-card__btn--added");
-        buttonElement.innerText = "Added";
+        flashTemporaryAddedOnButton(buttonElement, "buy-medicine-card__btn--added", "Add to cart");
     }
 }
 
@@ -477,6 +500,7 @@ function closeImmunityModal() {
 function resetDealCardAddButtons() {
     var resetIndex = 0;
     for (resetIndex = 0; resetIndex < addButtons.length; resetIndex = resetIndex + 1) {
+        clearButtonAddedFlashTimeout(addButtons[resetIndex]);
         addButtons[resetIndex].classList.remove("deal-card__btn--added");
         addButtons[resetIndex].innerText = "Add to cart";
     }
@@ -486,6 +510,7 @@ function resetBuyMedicineCardButtons() {
     var bmBtns = buyMedicineModal.getElementsByClassName("buy-medicine-card__btn");
     var j = 0;
     for (j = 0; j < bmBtns.length; j = j + 1) {
+        clearButtonAddedFlashTimeout(bmBtns[j]);
         bmBtns[j].classList.remove("buy-medicine-card__btn--added");
         bmBtns[j].innerText = "Add to cart";
     }
@@ -598,6 +623,9 @@ function updateCartDetails() {
 }
 
 function addItemToCart(buttonElement) {
+    if (buttonElement.disabled) {
+        return;
+    }
     var card = buttonElement.parentNode;
     var titleElement = card.getElementsByTagName("h3")[0];
     var priceElement = card.getElementsByClassName("deal-card__now")[0];
@@ -615,8 +643,7 @@ function addItemToCart(buttonElement) {
     });
 
     updateCartDetails();
-    buttonElement.classList.add("deal-card__btn--added");
-    buttonElement.innerText = "Added";
+    flashTemporaryAddedOnButton(buttonElement, "deal-card__btn--added", "Add to cart");
 }
 
 // --- Functions: Product sliders (horizontal scroll by section) ---
@@ -833,6 +860,9 @@ buyMedicineModal.addEventListener("click", function (event) {
         addBtn = target.closest(".buy-medicine-card__btn");
     }
     if (!addBtn) {
+        return;
+    }
+    if (addBtn.disabled) {
         return;
     }
     var cardEl = addBtn.closest(".buy-medicine-card");

@@ -713,6 +713,13 @@ body {
     cursor: pointer;
 }
 
+.deal-card__btn:disabled,
+.deal-card__btn:disabled:hover {
+    opacity: 0.92;
+    cursor: not-allowed;
+    transform: none;
+}
+
 .value-deals__nav {
     position: absolute;
     top: 44%;
@@ -1464,6 +1471,13 @@ body {
     color: #ffffff;
     transform: none;
     cursor: pointer;
+}
+
+.buy-medicine-card__btn:disabled,
+.buy-medicine-card__btn:disabled:hover {
+    opacity: 0.92;
+    cursor: not-allowed;
+    transform: none;
 }
 
 .condition-popup__images {
