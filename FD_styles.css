@@ -61,12 +61,13 @@ a:hover {
   align-items: center;
   gap: 10px;
   font-weight: 600;
-  color: var(--color-text);
+  color: orangered;
 }
 
 .brand__logo {
   height: 34px;
   width: auto;
+  color :orangered;
 }
 
 .main-nav {
@@ -74,7 +75,7 @@ a:hover {
   gap: 16px;
   align-items: center;
   font-weight: 500;
-}
+  }
 
 .nav-link {
   padding: 10px 10px;
@@ -395,6 +396,7 @@ select:focus {
 .articles-footer {
   margin-top: 24px;
   text-align: center;
+  cursor: pointer;
 }
 
 .footer-grid {
