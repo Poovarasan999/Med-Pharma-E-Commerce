@@ -4,188 +4,214 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Medical Navbar</title>
+  <meta name="description" content="Contact MedPharma for support and inquiries.">
+  <title>Contact Us | MedPharma</title>
 
-  
+  <!-- Inter font (same as main site) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
 
-  <!-- Tailwind (IMPORTANT FIX) -->
+  <!-- Icons: Font Awesome 7 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- Tailwind: utility classes like flex, p-4, text-sm -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'Segoe UI', 'system-ui', 'sans-serif'] },
+        },
+      },
+    };
+  </script>
 </head>
 
+<!--
+  Page layout (top to bottom):
+  1) Sticky header — logo, shortcuts, then nav links (no search / delivery on this page)
+  2) Banner image
+  3) Main: contact form (left) + info cards (right) on large screens
+  4) Footer — same sections as the home page
+-->
+<body class="bg-gradient-to-b from-[#fff7f3] to-[#fffaf2] font-sans antialiased">
 
-  
+  <!-- ========== HEADER ========== -->
+  <header
+    class="
+      flex flex-col bg-white
+      border-t border-[#dbe4ea]
+      shadow-[0_2px_8px_rgba(15,23,42,0.06)]
+      sticky top-0 z-[220]
+    ">
 
-<body class="bg-gray-100 ">
+    <!-- Top row: logo (home) + shortcuts — no delivery address or search on contact page -->
+    <div
+      class="
+        min-h-[58px] py-2 px-7 flex flex-wrap items-center justify-between gap-5
+        bg-white sticky top-0 z-[221]
+        max-[1300px]:px-[18px] max-[520px]:px-3 max-[520px]:gap-2.5
+      ">
 
-  <!-- Navbar -->
-  <nav class="bg-white shadow-md px-6 py-3 ">
-
-    <!-- Top Row -->
-    <div class="flex items-center justify-between">
-
-      <!-- Logo -->
-      <div class="flex items-center space-x-2">
-        <div class="bg-orange-500 text-white p-2 rounded">
-     <i class="fas fa-syringe"></i> 
-</div>
-        <h1 class="text-xl font-bold text-orange-500 pr-8">MedPharma</h1>
-      </div>
-
-      <!-- Delivery Address -->
-      <div class="hidden md:flex items-center space-x-4 text-sm">
-        
-            <i class="fas fa-map-marker-alt text-lg "></i>
-
-        <div>
-          <p class="text-gray-500">Delivery Address</p>
-          <p class="font-semibold text-orange-500">Vellore 632403</p>
+      <a href="index.html"
+        class="flex items-center gap-2.5 shrink-0 min-w-0 no-underline text-inherit max-[520px]:flex-1">
+        <div
+          class="
+            w-[30px] h-[30px] rounded-lg bg-[#f15a24] text-white
+            grid place-items-center shadow-[0_4px_10px_rgba(241,90,36,0.3)]
+            max-[1300px]:w-[26px] max-[1300px]:h-[26px]
+          "
+          aria-hidden="true">
+          <i class="fa-solid fa-syringe text-sm"></i>
         </div>
-      </div>
+        <h1 class="m-0 text-lg font-extrabold tracking-wide text-[#f15a24] max-[1300px]:text-[17px]">
+          MedPharma
+        </h1>
+      </a>
 
-      <!-- Search Bar -->
-      <div class="flex-1 mx-6 hidden md:block">
-        <input type="text"
-          placeholder="Search Medicines"
-          class="w-full border rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400">
-      </div>
-
-      <!-- Right Side -->
-      <div class="flex items-center space-x-4">
-
-        <!-- Cart -->
-        <div class="relative cursor-pointer">
-          🛒
-          <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-1 rounded-full">
-            0
-          </span>
-        </div>
-
-        <!-- Login -->
-        <button class="border px-4 py-1 rounded-full text-orange-500 border-orange-500 hover:bg-orange-500 hover:text-white transition">
-          Login
-        </button>
-
+      <!-- Right: jump to form + shop -->
+      <div class="flex items-center gap-3 shrink-0 flex-wrap justify-end max-[520px]:gap-2">
+        <a href="#contact-form"
+          class="
+            group inline-flex items-center justify-center gap-1.5 min-h-9 px-3
+            rounded-md border border-slate-200 bg-white
+            text-sm font-semibold text-slate-600 no-underline transition-colors
+            hover:border-[#f15a24] hover:text-[#f15a24]
+            max-[380px]:px-0 max-[380px]:w-9 max-[380px]:min-w-9
+          "
+          aria-label="Jump to contact form">
+          <i class="fa-solid fa-pen-to-square text-[#f15a24] text-[15px]" aria-hidden="true"></i>
+          <span class="max-[380px]:sr-only">Message us</span>
+        </a>
+        <a href="index.html"
+          class="
+            h-9 px-4 max-[480px]:px-3 rounded-md bg-[#f15a24] text-white text-sm font-bold
+            no-underline shadow-[0_4px_12px_rgba(241,90,36,0.35)]
+            inline-flex items-center gap-2
+            hover:bg-[#d94a18] hover:-translate-y-px transition-all
+          ">
+          <i class="fa-solid fa-bag-shopping text-[13px] opacity-95" aria-hidden="true"></i>
+          <span class="max-[360px]:hidden">Shop</span>
+        </a>
       </div>
     </div>
 
-    <!-- Bottom Menu full width-->
-     <div class="w-full bg-[#fff6f1] border-y">
-     
-    <div class="flex justify-center  space-x-24 text-gray-700 font-medium pt-3 pb-3">
-      <a href="index.html" class="hover:text-orange-500">Buy Medicines</a>
-      <a href="Find doctors" class="hover:text-orange-500">Find Doctors</a>
-      <a href="lab_tests.html" class="hover:text-orange-500">Lab Tests</a>
-      <a href="Circle_membership.html" class="hover:text-orange-500">Circle Membership</a>
-      <a href="contactus.html" class="hover:text-orange-500">Contact Us</a>
-    </div>
-     </div>
+    <!-- Cream bar: main site sections -->
+    <nav
+      class="
+        min-h-[50px] px-6 flex items-center justify-around gap-6 overflow-x-auto
+        border-y border-[#edf2f7] bg-[#fffaf2] sticky top-0 z-[222]
+        [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
+        max-[520px]:min-h-[42px] max-[520px]:px-5 max-[520px]:gap-3
+        max-[480px]:min-h-9 max-[480px]:gap-2.5
+      "
+      aria-label="Quick links">
+      <a href="index.html"
+        class="shrink-0 no-underline text-slate-900 text-sm font-semibold hover:text-[#f15a24] max-[520px]:text-xs max-[480px]:text-[11px]">Buy
+        Medicines</a>
+      <a href="FD_index.html"
+        class="shrink-0 no-underline text-slate-900 text-sm font-semibold hover:text-[#f15a24] max-[520px]:text-xs max-[480px]:text-[11px]">Find
+        Doctors</a>
+      <a href="lab_tests.html"
+        class="shrink-0 no-underline text-slate-900 text-sm font-semibold hover:text-[#f15a24] max-[520px]:text-xs max-[480px]:text-[11px]">Lab
+        Tests</a>
+      <a href="Circle_membership.html"
+        class="shrink-0 no-underline text-slate-900 text-sm font-semibold hover:text-[#f15a24] max-[520px]:text-xs max-[480px]:text-[11px]">Circle
+        Membership</a>
+      <a href="contactus.html"
+        class="shrink-0 no-underline text-[#f15a24] text-sm font-semibold max-[520px]:text-xs max-[480px]:text-[11px]"
+        aria-current="page">Contact Us</a>
+    </nav>
+  </header>
+
   
-    <!-- Center Menu -->
-    <ul class="hidden md:flex items-center space-x-6 text-sm font-medium">
-
-      <li><a href="index.html" class="hover:text-blue-600">Buy Medicines</a></li>
-      
-      <li><a href="FD_index.html" class="hover:text-blue-600">Find Doctors</a></li>
-
-      <li><a href="lab_tests.html" class="hover:text-blue-600">Lab Tests</a></li>
-      <li><a href="Circle_membership.html" class="hover:text-blue-600">Circle Membership</a></li>
-      <li><a href="contactus.html" class="hover:text-blue-600">Contact us</a></li>
-    </ul>
-
-    
-
-  </nav>
-
-
-
-
   <div>
-    <div class="bg-gradient-to-r from-blue-700 to-blue-300 w-full h-60">
-       <img src="image1.jpeg" alt="Banner" class="w-full h-[260px] object-cover">
- 
+    <!-- Banner: orange gradient + photo (theme matches header Shop button) -->
+    <div class="w-full h-60 bg-gradient-to-r from-[#f15a24] via-[#ff7a3d] to-[#ffb088]">
+      <img src="image1.jpeg" alt="Banner Image" class="w-full h-full object-cover opacity-80" />
     </div>
 
     <div class="max-w-7xl max-lg:max-w-3xl mx-auto p-4 md:p-8">
       <div class="grid lg:grid-cols-2 gap-8 items-start">
-        <div class="bg-gray-50 rounded-lg p-8 border border-gray-200">
+
+        
+        <div id="contact-form"
+          class="bg-white rounded-lg p-8 border border-[#f5d7c9] shadow-sm scroll-mt-28">
           <h2 class="text-3xl font-bold text-slate-900 mb-4">Get in touch</h2>
-          <p class="text-slate-600 text-[15px] mb-8 leading-relaxed">Feel free to contact us and we will get back to you
-            as soon as possible</p>
+          <p class="text-slate-600 text-[15px] mb-8 leading-relaxed">
+            Feel free to contact us and we will get back to you as soon as possible
+          </p>
 
           <div class="space-y-6">
             <div>
-              <label class="text-slate-900 text-sm font-medium mb-2 block">Name</label>
-              <input type="text" placeholder="Name"
-                class="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 text-sm text-slate-900 focus:border-indigo-500 outline-0" />
+              <label class="text-slate-900 text-sm font-medium mb-2 block" for="contact-name">Name</label>
+              <input id="contact-name" type="text" placeholder="Name"
+                class="w-full px-4 py-3 rounded-lg bg-[#fffaf2] border border-[#e8dfd8] text-sm text-slate-900 outline-none focus:border-[#f15a24] focus:ring-1 focus:ring-[#f15a24]/30" />
             </div>
             <div>
-              <label class="text-slate-900 text-sm font-medium mb-2 block">Email</label>
-              <input type="email" placeholder="E-mail"
-                class="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 text-sm text-slate-900 focus:border-indigo-500 outline-0" />
+              <label class="text-slate-900 text-sm font-medium mb-2 block" for="contact-email">Email</label>
+              <input id="contact-email" type="email" placeholder="E-mail"
+                class="w-full px-4 py-3 rounded-lg bg-[#fffaf2] border border-[#e8dfd8] text-sm text-slate-900 outline-none focus:border-[#f15a24] focus:ring-1 focus:ring-[#f15a24]/30" />
             </div>
             <div>
-              <label class="text-slate-900 text-sm font-medium mb-2 block">Message</label>
-              <textarea placeholder="Message" rows="4"
-                class="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 text-sm text-slate-900 focus:border-indigo-500 outline-0"></textarea>
+              <label class="text-slate-900 text-sm font-medium mb-2 block" for="contact-message">Message</label>
+              <textarea id="contact-message" placeholder="Message" rows="4"
+                class="w-full px-4 py-3 rounded-lg bg-[#fffaf2] border border-[#e8dfd8] text-sm text-slate-900 outline-none focus:border-[#f15a24] focus:ring-1 focus:ring-[#f15a24]/30"></textarea>
             </div>
             <button type="button"
-              class="w-full text-sm bg-indigo-700 hover:bg-slate-900 text-white font-medium py-3 px-6 rounded-lg transition-colors border-0 cursor-pointer">
+              class="w-full text-sm bg-[#f15a24] hover:bg-[#d94a18] text-white font-semibold py-3 px-6 rounded-lg transition-colors border-0 cursor-pointer shadow-[0_4px_12px_rgba(241,90,36,0.25)]">
               Send message
             </button>
           </div>
         </div>
 
+       
         <div class="space-y-8">
-          <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
+          <div class="bg-white rounded-lg p-6 shadow-sm border border-[#f5d7c9]">
             <h3 class="text-xl font-semibold text-slate-900 mb-8">Contact Information</h3>
 
             <div class="space-y-6">
               <div class="flex items-start space-x-3">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-indigo-700" viewBox="0 0 64 64">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 shrink-0 fill-[#f15a24]" viewBox="0 0 64 64">
                   <path
-                    d="M32 0A24.032 24.032 0 0 0 8 24c0 17.23 22.36 38.81 23.31 39.72a.99.99 0 0 0 1.38 0C33.64 62.81 56 41.23 56 24A24.032 24.032 0 0 0 32 0zm0 35a11 11 0 1 1 11-11 11.007 11.007 0 0 1-11 11z"
-                    data-original="#000000" />
+                    d="M32 0A24.032 24.032 0 0 0 8 24c0 17.23 22.36 38.81 23.31 39.72a.99.99 0 0 0 1.38 0C33.64 62.81 56 41.23 56 24A24.032 24.032 0 0 0 32 0zm0 35a11 11 0 1 1 11-11 11.007 11.007 0 0 1-11 11z" />
                 </svg>
                 <div>
-                  <h4 class="font-semibold text-indigo-700 text-sm mb-2">Our Location</h4>
+                  <h4 class="font-semibold text-[#f15a24] text-sm mb-2">Our Location</h4>
                   <p class="text-slate-600 text-sm">123 Business Street</p>
                   <p class="text-slate-600 text-[13px] mt-0.5">vellore 632403</p>
                 </div>
               </div>
 
               <div class="flex items-start space-x-3">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-indigo-700" viewBox="0 0 513.64 513.64">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 shrink-0 fill-[#f15a24]"
+                  viewBox="0 0 513.64 513.64">
                   <path
-                    d="m499.66 376.96-71.68-71.68c-25.6-25.6-69.12-15.359-79.36 17.92-7.68 23.041-33.28 35.841-56.32 30.72-51.2-12.8-120.32-79.36-133.12-133.12-7.68-23.041 7.68-48.641 30.72-56.32 33.28-10.24 43.52-53.76 17.92-79.36l-71.68-71.68c-20.48-17.92-51.2-17.92-69.12 0L18.38 62.08c-48.64 51.2 5.12 186.88 125.44 307.2s256 176.641 307.2 125.44l48.64-48.64c17.921-20.48 17.921-51.2 0-69.12z"
-                    data-original="#000000" />
+                    d="m499.66 376.96-71.68-71.68c-25.6-25.6-69.12-15.359-79.36 17.92-7.68 23.041-33.28 35.841-56.32 30.72-51.2-12.8-120.32-79.36-133.12-133.12-7.68-23.041 7.68-48.641 30.72-56.32 33.28-10.24 43.52-53.76 17.92-79.36l-71.68-71.68c-20.48-17.92-51.2-17.92-69.12 0L18.38 62.08c-48.64 51.2 5.12 186.88 125.44 307.2s256 176.641 307.2 125.44l48.64-48.64c17.921-20.48 17.921-51.2 0-69.12z" />
                 </svg>
                 <div>
-                  <h4 class="font-semibold text-indigo-700 text-sm mb-2">Phone Number</h4>
+                  <h4 class="font-semibold text-[#f15a24] text-sm mb-2">Phone Number</h4>
                   <p class="text-slate-600 text-[13px]">+1 (555) 123-4567</p>
                 </div>
               </div>
 
               <div class="flex items-start space-x-3">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-indigo-700" viewBox="0 0 512 512">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 shrink-0 fill-[#f15a24]" viewBox="0 0 512 512">
                   <path
-                    d="M298.789 313.693c-12.738 8.492-27.534 12.981-42.789 12.981-15.254 0-30.05-4.489-42.788-12.981L3.409 173.82A76.269 76.269 0 0 1 0 171.403V400.6c0 26.278 21.325 47.133 47.133 47.133h417.733c26.278 0 47.133-21.325 47.133-47.133V171.402a75.21 75.21 0 0 1-3.416 2.422z"
-                    data-original="#000000" />
+                    d="M298.789 313.693c-12.738 8.492-27.534 12.981-42.789 12.981-15.254 0-30.05-4.489-42.788-12.981L3.409 173.82A76.269 76.269 0 0 1 0 171.403V400.6c0 26.278 21.325 47.133 47.133 47.133h417.733c26.278 0 47.133-21.325 47.133-47.133V171.402a75.21 75.21 0 0 1-3.416 2.422z" />
                   <path
-                    d="m20.05 148.858 209.803 139.874c7.942 5.295 17.044 7.942 26.146 7.942 9.103 0 18.206-2.648 26.148-7.942L491.95 148.858c12.555-8.365 20.05-22.365 20.05-37.475 0-25.981-21.137-47.117-47.117-47.117H47.117C21.137 64.267 0 85.403 0 111.408a44.912 44.912 0 0 0 20.05 37.45z"
-                    data-original="#000000" />
+                    d="m20.05 148.858 209.803 139.874c7.942 5.295 17.044 7.942 26.146 7.942 9.103 0 18.206-2.648 26.148-7.942L491.95 148.858c12.555-8.365 20.05-22.365 20.05-37.475 0-25.981-21.137-47.117-47.117-47.117H47.117C21.137 64.267 0 85.403 0 111.408a44.912 44.912 0 0 0 20.05 37.45z" />
                 </svg>
                 <div>
-                  <h4 class="font-semibold text-indigo-700 text-sm mb-2">Email Address</h4>
+                  <h4 class="font-semibold text-[#f15a24] text-sm mb-2">Email Address</h4>
                   <p class="text-slate-600 text-[13px]">contact@business.com</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
+          <div class="bg-white rounded-lg p-6 shadow-sm border border-[#f5d7c9]">
             <h3 class="text-xl font-semibold text-slate-900 mb-8">Hours of Operation</h3>
             <div class="space-y-4">
               <div class="flex justify-between gap-4 flex-wrap">
@@ -205,83 +231,116 @@
         </div>
       </div>
     </div>
-  
+  </div>
 
   
+  <footer
+    class="mt-2.5 scroll-mt-[120px] bg-gradient-to-b from-[#fff7f3] to-[#fff2eb] border-t border-[#f5d7c9]"
+    id="contact-us">
+    <div
+      class="
+        max-w-[1180px] mx-auto grid grid-cols-1 gap-3 px-2 py-[18px] pb-3.5
+        md:grid-cols-2 md:gap-3.5 md:px-2.5 md:py-5 md:pb-4
+        lg:grid-cols-3 lg:gap-[18px] lg:px-3.5 lg:pt-6 lg:pb-[18px]
+        xl:grid-cols-[1.2fr_1fr_1fr_1fr_1.2fr] xl:gap-[22px] xl:px-5 xl:pt-7 xl:pb-5
+        max-[600px]:[&_h3]:text-sm
+      ">
+      <!-- Column 1: brand + social -->
+      <div class="md:col-span-2 lg:col-span-1 xl:col-span-1">
+        <div class="flex items-center gap-2.5">
+          <div
+            class="w-[30px] h-[30px] rounded-lg bg-[#f15a24] text-white grid place-items-center shadow-[0_4px_10px_rgba(241,90,36,0.3)] shrink-0"
+            aria-hidden="true">
+            <i class="fa-solid fa-syringe text-sm"></i>
+          </div>
+          <h2 class="m-0 text-lg font-extrabold text-[#f15a24]">MedPharma</h2>
+        </div>
+        <p class="mt-3 mb-3.5 text-[13px] leading-[22px] text-slate-600">
+          Your trusted online pharmacy for medicines, wellness products, personal care, and daily health
+          essentials with fast delivery and genuine quality.
+        </p>
+        <div class="flex gap-2">
+          <a href="#"
+            class="w-[30px] h-[30px] rounded-full bg-[#f15a24] text-white grid place-items-center text-xs no-underline transition-colors transition-transform hover:bg-[#d94a18] hover:-translate-y-px"
+            aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+          <a href="#"
+            class="w-[30px] h-[30px] rounded-full bg-[#f15a24] text-white grid place-items-center text-xs no-underline transition-colors transition-transform hover:bg-[#d94a18] hover:-translate-y-px"
+            aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+          <a href="#"
+            class="w-[30px] h-[30px] rounded-full bg-[#f15a24] text-white grid place-items-center text-xs no-underline transition-colors transition-transform hover:bg-[#d94a18] hover:-translate-y-px"
+            aria-label="Twitter"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+          <a href="#"
+            class="w-[30px] h-[30px] rounded-full bg-[#f15a24] text-white grid place-items-center text-xs no-underline transition-colors transition-transform hover:bg-[#d94a18] hover:-translate-y-px"
+            aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+        </div>
+      </div>
 
-<!-- Footer -->
-<footer class="bg-[#fff6f1] text-gray-700 pt-10 pb-4 px-6">
+      <div>
+        <h3 class="m-0 mb-2.5 text-[15px] font-semibold text-gray-800">Quick Links</h3>
+        <a href="index.html"
+          class="block mb-[7px] text-[13px] max-[600px]:text-xs text-slate-600 no-underline hover:text-[#f15a24]">Home</a>
+        <a href="#"
+          class="block mb-[7px] text-[13px] max-[600px]:text-xs text-slate-600 no-underline hover:text-[#f15a24]">About
+          Us</a>
+        <a href="contactus.html"
+          class="block mb-[7px] text-[13px] max-[600px]:text-xs text-slate-600 no-underline hover:text-[#f15a24]">Contact
+          Us</a>
+        <a href="#"
+          class="block mb-[7px] text-[13px] max-[600px]:text-xs text-slate-600 no-underline hover:text-[#f15a24]">Track
+          Order</a>
+      </div>
 
-  <div class="max-w-6xl mx-auto grid md:grid-cols-4 gap-8">
+      <div>
+        <h3 class="m-0 mb-2.5 text-[15px] font-semibold text-gray-800">Categories</h3>
+        <a href="#"
+          class="block mb-[7px] text-[13px] max-[600px]:text-xs text-slate-600 no-underline hover:text-[#f15a24]">Medicines</a>
+        <a href="#"
+          class="block mb-[7px] text-[13px] max-[600px]:text-xs text-slate-600 no-underline hover:text-[#f15a24]">Health
+          Devices</a>
+        <a href="#"
+          class="block mb-[7px] text-[13px] max-[600px]:text-xs text-slate-600 no-underline hover:text-[#f15a24]">Personal
+          Care</a>
+        <a href="#"
+          class="block mb-[7px] text-[13px] max-[600px]:text-xs text-slate-600 no-underline hover:text-[#f15a24]">Supplements</a>
+      </div>
 
-    <!-- Logo -->
-    <div>
-      <h2 class="text-xl font-bold text-orange-600 flex items-center gap-2">
-       <i class="fas fa-syringe"></i> MedPharma
+      <div>
+        <h3 class="m-0 mb-2.5 text-[15px] font-semibold text-gray-800">Customer Support</h3>
+        <a href="#"
+          class="block mb-[7px] text-[13px] max-[600px]:text-xs text-slate-600 no-underline hover:text-[#f15a24]">FAQs</a>
+        <a href="#"
+          class="block mb-[7px] text-[13px] max-[600px]:text-xs text-slate-600 no-underline hover:text-[#f15a24]">Shipping
+          Policy</a>
+        <a href="#"
+          class="block mb-[7px] text-[13px] max-[600px]:text-xs text-slate-600 no-underline hover:text-[#f15a24]">Return
+          Policy</a>
+        <a href="#"
+          class="block mb-[7px] text-[13px] max-[600px]:text-xs text-slate-600 no-underline hover:text-[#f15a24]">Privacy
+          Policy</a>
+      </div>
 
-      </h2>
-
-      <p class="mt-4 text-sm leading-6">
-        Your trusted online pharmacy for medicines, wellness products,
-        personal care, and daily health essentials with fast delivery
-        and genuine quality.
-      </p>
-
-      <!-- Social Icons -->
-      <div class="flex gap-3 mt-4">
-        <a href="#" class="bg-white text-orange-500 p-2 rounded-full shadow"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="bg-white text-orange-500 p-2 rounded-full shadow"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="bg-white text-orange-500 p-2 rounded-full shadow"><i class="fab fa-x-twitter"></i></a>
-        <a href="#" class="bg-white text-orange-500 p-2 rounded-full shadow"><i class="fab fa-youtube"></i></a>
+      <div>
+        <h3 class="m-0 mb-2.5 text-[15px] font-semibold text-gray-800">Contact</h3>
+        <p class="m-0 mb-2 flex items-start gap-2 text-[13px] max-[600px]:text-xs leading-5 text-slate-600">
+          <i class="fa-solid fa-phone mt-0.5 shrink-0 text-[#f15a24]" aria-hidden="true"></i>
+          +91 98765 43210
+        </p>
+        <p class="m-0 mb-2 flex items-start gap-2 text-[13px] max-[600px]:text-xs leading-5 text-slate-600">
+          <i class="fa-solid fa-envelope mt-0.5 shrink-0 text-[#f15a24]" aria-hidden="true"></i>
+          support@medpharma.com
+        </p>
+        <p class="m-0 mb-2 flex items-start gap-2 text-[13px] max-[600px]:text-xs leading-5 text-slate-600">
+          <i class="fa-solid fa-location-dot mt-0.5 shrink-0 text-[#f15a24]" aria-hidden="true"></i>
+          Chennai, Tamil Nadu, India
+        </p>
       </div>
     </div>
 
-    <!-- Quick Links -->
-    <div>
-      <h3 class="font-semibold text-lg mb-3">Quick Links</h3>
-      <ul class="space-y-2 text-sm">
-        <li><a href="#" class="hover:text-orange-600">Home</a></li>
-        <li><a href="#" class="hover:text-orange-600">About Us</a></li>
-        <li><a href="#" class="hover:text-orange-600">Contact Us</a></li>
-        <li><a href="#" class="hover:text-orange-600">Track Order</a></li>
-      </ul>
+    <div
+      class="border-t border-[#f5d7c9] py-3 px-5 text-center max-[800px]:p-2.5 max-[600px]:px-2 max-[600px]:py-2.5 max-[600px]:pb-3">
+      <p class="m-0 text-xs text-slate-500">&copy; 2026 MedPharma. All Rights Reserved.</p>
     </div>
-
-    <!-- Categories -->
-    <div>
-      <h3 class="font-semibold text-lg mb-3">Categories</h3>
-      <ul class="space-y-2 text-sm">
-        <li><a href="#" class="hover:text-orange-600">Medicines</a></li>
-        <li><a href="#" class="hover:text-orange-600">Health Devices</a></li>
-        <li><a href="#" class="hover:text-orange-600">Personal Care</a></li>
-        <li><a href="#" class="hover:text-orange-600">Supplements</a></li>
-      </ul>
-
-    </div>
-
-    <!-- Contact -->
-    <div>
-      <h3 class="font-semibold text-lg mb-3">Customer Support</h3>
-      <ul class="space-y-2 text-sm mb-4">
-        <li><a href="#" class="hover:text-orange-600">FAQs</a></li>
-        <li><a href="#" class="hover:text-orange-600">Shipping Policy</a></li>
-        <li><a href="#" class="hover:text-orange-600">Return Policy</a></li>
-        <li><a href="#" class="hover:text-orange-600">Privacy Policy</a></li>
-      </ul>
-
-      <h3 class="font-semibold text-lg mb-2">Contact</h3>
-      <p class="text-sm flex items-center gap-2"><i class="fas fa-phone text-orange-500"></i> +91 98765 43210</p>
-      <p class="text-sm flex items-center gap-2"><i class="fas fa-envelope text-orange-500"></i> support@medpharma.com</p>
-      <p class="text-sm flex items-center gap-2"><i class="fas fa-map-marker-alt text-orange-500"></i> Chennai, Tamil Nadu, India</p>
-    </div>
-
-  </div>
-
-  <div class="border-t mt-8 pt-4 text-center text-sm">
-    © 2026 MedPharma. All Rights Reserved.
-  </div>
-
-</footer>
+  </footer>
 
 </body>
 
