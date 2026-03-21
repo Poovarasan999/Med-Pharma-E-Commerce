@@ -15,7 +15,7 @@
 <body>
     
 
-    <!-- Main Navbar -->
+    <!-- Header -->
      <header class="header">
         <div class="header__top">
             <div class="header__left">
@@ -35,10 +35,7 @@
                     </div>
                 </div>
             </div>
-            <div class="header__search">
-                <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-                <input type="text" placeholder="Search Medicines">
-            </div>
+            
             <div class="header__right">
                 <button class="icon-btn" id="cartToggle" aria-label="cart">
                     <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
@@ -50,21 +47,93 @@
                 </button>
             </div>
         </div>
+        <!-- Main Navbar -->
 
         <nav class="header__mid" aria-label="Quick links">
             <a href="index.html">Buy Medicines</a>
-            <a href="">Find Doctors</a>
+            <a href="FD_index.html">Find Doctors</a>
             <a href="lab_tests.html">Lab Tests</a>
             <a href="Circle_membership.html">Circle Membership</a>
-            <a href="">Contact Us</a>
+            <a href="contactus.html">Contact Us</a>
         </nav>
+    </header>
+
+    <!-- Location, cart, login windows -->
+     <div class="location-overlay" id="locationOverlay"></div>
+    <aside class="location-panel" id="locationPanel" aria-label="Delivery location panel">
+        <div class="location-panel__top">
+            <button type="button" class="location-panel__back" id="locationClose" aria-label="Close location panel">
+                <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+            </button>
+            <h3>Deliver to</h3>
+        </div>
+
+        <button type="button" class="location-panel__btn location-panel__btn--primary">
+            <i class="fa-solid fa-location-crosshairs" aria-hidden="true"></i>
+            Current Location
+        </button>
+
+        <p class="location-panel__or">OR</p>
+
+        <button type="button" class="location-panel__btn location-panel__btn--outline">
+            <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+            Choose a different location
+        </button>
+    </aside>
+
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-modal" id="cartModal" aria-label="Order details popup">
+        <div class="cart-modal__top">
+            <h3>Order Details</h3>
+            <button type="button" class="cart-modal__close" id="cartClose" aria-label="Close order details">
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+        </div>
+
+        <div class="cart-modal__body">
+            <p class="cart-modal__empty" id="cartEmptyText">Your cart is empty. Add items to see order details.</p>
+            <div class="cart-modal__list" id="cartItemsList"></div>
+            <p class="cart-modal__row"><span>Items</span><strong id="cartItemsCount">0</strong></p>
+            <p class="cart-modal__row"><span>Subtotal</span><strong id="cartSubtotal">Rs 0</strong></p>
+            <p class="cart-modal__row"><span>Delivery Fee</span><strong id="cartDeliveryFee">Rs 0</strong></p>
+            <p class="cart-modal__row"><span>Discount</span><strong id="cartDiscount">Rs 0</strong></p>
+            <p class="cart-modal__row cart-modal__row--total"><span>Total</span><strong id="cartTotal">Rs 0</strong></p>
+        </div>
+
+        <button type="button" class="cart-modal__checkout" id="checkoutBtn">Proceed to Checkout</button>
+    </div>
+
+    <div class="login-overlay" id="loginOverlay"></div>
+    <div class="login-modal" id="loginModal" aria-label="Login form popup">
+        <div class="login-modal__top">
+            <h3>Login</h3>
+            <button type="button" class="login-modal__close" id="loginClose" aria-label="Close login form">
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+        </div>
+
+        <div class="login-modal__body">
+            <label for="loginName">Full Name</label>
+            <input type="text" id="loginName" placeholder="Enter your name">
+
+            <label for="loginEmail">Email</label>
+            <input type="email" id="loginEmail" placeholder="Enter your email">
+
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" placeholder="Enter password">
+
+            <p class="login-modal__error" id="loginError"></p>
+            <button type="button" class="login-modal__submit" id="loginSubmit">Login Now</button>
+        </div>
+    </div>
+
 
     <!-- Small navbar -->
     <nav class="bg-[#F15A24] flex justify-center ">
         <ul class=" text-[#FFF9F3] font-semibold flex items-center justify-around p-2  ">
             <li><a href="#benefits" class="m-2 p-1 hover:border border-[#FFF9F3] rounded-2xl  ">Circle Benefits </a>
             </li>
-            <li> <a href="#plans" class="m-2 p-1 hover:border border-[#FFF9F3] rounded-2xl ">Plans For You</a></li>
+            <li> <a href="#plans" class="m-2 p-1 hover:border border-[#FFF9F3] rounded-2xl ">Plans </a></li>
             <li> <a href="#review" class="m-2 p-1 hover:border border-[#FFF9F3] rounded-2xl ">Membership Reviews</a>
             </li>
             <li><a href="#faqs" class="m-2 p-1 hover:border border-[#FFF9F3] rounded-2xl ">FAQs </a></li>
@@ -73,9 +142,9 @@
 
     <!-- section - 1 -->
     <div class="bg-[#FFF9F3] flex items-center justify-center">
-        <img src="./image/logo.png" alt="" class="h-50 w-80 m-5 p-5">
+        <img src="./image/logo.png" alt="" class="h-50 w-80 m-2 p-5">
 
-        <h1 class="text-3xl font-semibold ">
+        <h1 class="text-xl font-semibold md: text-3xl">
             Premium perks + <br>
             Assured savings
         </h1>
@@ -123,10 +192,11 @@
 
         </div>
     </div>
+    
 
     <!-- Section -4 Subscription -->
 
-    <div class="bg-black text-white p-8">
+    <div id="plans" class=" bg-black text-white p-8">
 
         <h2 class="text-3xl font-bold mb-6">Plans For You</h2>
 
@@ -201,7 +271,7 @@
         <div
             class="bg-[#F15A24] text-[#FFF9F3] flex w-1/3 border border-[#FFF9F3] rounded-2xl justify-center items-center p-4">
             <!-- content -->
-            <div class=" p-2 m-6"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+            <div class=" p-2 "><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                     stroke-width="1.5" stroke="currentColor" class="w-20 ">
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M15.182 15.182a4.5 4.5 0 0 1-6.364 0M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Z" />
@@ -210,7 +280,7 @@
             </div>
 
             <div class=" p-1">
-                <h2 class="text-2xl font-bold ">1 Crore+ </h2>
+                <h2 class=" font-bold md: text-2xl">1 Crore+ </h2>
                 <p>Happy Circle Members</p>
             </div>
         </div>
@@ -218,7 +288,7 @@
         <div
             class="bg-[#F15A24] text-[#FFF9F3] flex w-1/3 border border-[#FFF9F3] rounded-2xl justify-center items-center p-4">
             <!-- content -->
-            <div class=" p-2 m-6"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+            <div class=" p-2 "><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                     stroke-width="1.5" stroke="currentColor" class="w-20">
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M15 8.25H9m6 3H9m3 6-3-3h1.5a3 3 0 1 0 0-6M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
@@ -227,7 +297,7 @@
             </div>
 
             <div class="m-1 p-1">
-                <h2 class="text-2xl font-bold">&#8377;3000 </h2>
+                <h2 class=" font-bold md: text-2xl">&#8377;3000 </h2>
                 <p>Average Savings</p>
             </div>
         </div>
@@ -235,7 +305,7 @@
         <div
             class="bg-[#F15A24] text-[#FFF9F3] flex w-1/3 border border-[#FFF9F3] rounded-2xl justify-center items-center p-4">
             <!-- content -->
-            <div class=" p-2 m-6"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+            <div class=" p-2"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                     stroke-width="1.5" stroke="currentColor" class="w-20">
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
@@ -244,7 +314,7 @@
             </div>
 
             <div class="m-1 p-1">
-                <h2 class="text-2xl font-bold">95% </h2>
+                <h2 class="font-bold md: text-2xl ">95% </h2>
                 <p>Before-time Delivery</p>
             </div>
         </div>
@@ -409,7 +479,7 @@
 
 
 
-    <script src="./Circle_membership.js">
+    <script src="Circle_membership.js">
        
     </script>
 </body>
