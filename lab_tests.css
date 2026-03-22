@@ -79,6 +79,16 @@ button {
     flex: 1 1 320px;
 }
 
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #1f2937;
+    cursor: pointer;
+    padding: 0 5px;
+}
+
 .logo {
     display: flex;
     align-items: center;
@@ -745,7 +755,7 @@ button {
     align-items: center;
     justify-content: space-between;
     padding: 60px 40px 70px;
-    background: linear-gradient(135deg, #fffcf9 0%, #fff7f0 100%);
+    background: linear-gradient(135deg, #FFF3E0 0%, #fff7f0 100%);
     position: relative;
     overflow: hidden;
 }
@@ -951,6 +961,7 @@ button {
     position: relative;
     display: flex;
     flex-direction: column;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .test-card:hover {
