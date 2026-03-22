@@ -1606,10 +1606,6 @@ body {
         font-size: 17px;
     }
 
-    .header__search {
-        display: none;
-    }
-
     .banner {
         min-height: 210px;
     }
