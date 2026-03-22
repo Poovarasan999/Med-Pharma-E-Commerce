@@ -30,83 +30,111 @@ plans.forEach(plan => {
         plans.forEach(p => {
             p.classList.remove("bg-[#F5E9DC]", "text-black", "border-orange-500");
 
-            p.querySelector(".dot").classList.add("hidden");
-            p.querySelector(".circle").classList.remove("border-orange-500");
+            var pd = p.querySelector(".dot");
+            var pc = p.querySelector(".circle");
+            if (pd) pd.classList.add("hidden");
+            if (pc) pc.classList.remove("border-orange-500");
         });
 
         // add active to clicked
         this.classList.add("bg-[#F5E9DC]", "text-black", "border-orange-500");
 
-        this.querySelector(".dot").classList.remove("hidden");
-        this.querySelector(".circle").classList.add("border-orange-500");
+        var dot = this.querySelector(".dot");
+        var circle = this.querySelector(".circle");
+        if (dot) dot.classList.remove("hidden");
+        if (circle) circle.classList.add("border-orange-500");
 
     });
 });
 
-// Footer JS
-var addressToggle = document.getElementById("addressToggle");
-var locationPanel = document.getElementById("locationPanel");
-var locationOverlay = document.getElementById("locationOverlay");
-var locationClose = document.getElementById("locationClose");
-var cartToggle = document.getElementById("cartToggle");
-var cartModal = document.getElementById("cartModal");
-var cartOverlay = document.getElementById("cartOverlay");
-var cartClose = document.getElementById("cartClose");
+// Circle_membership only: login + success (same behaviour as index.html / script.js)
 var loginToggle = document.getElementById("loginToggle");
 var loginOverlay = document.getElementById("loginOverlay");
 var loginModal = document.getElementById("loginModal");
 var loginClose = document.getElementById("loginClose");
-var loginSubmit = document.getElementById("loginSubmit");
+var circleLoginForm = document.getElementById("circleLoginForm");
 var loginError = document.getElementById("loginError");
-
-function openLocationPanel() {
-    locationPanel.style.left = "0";
-    locationOverlay.style.display = "block";
-}
-
-function closeLocationPanel() {
-    locationPanel.style.left = "-100%";
-    locationOverlay.style.display = "none";
-}
-
-function openCartModal() {
-    cartModal.style.display = "block";
-    cartOverlay.style.display = "block";
-}
-
-function closeCartModal() {
-    cartModal.style.display = "none";
-    cartOverlay.style.display = "none";
-}
+var loginName = document.getElementById("loginName");
+var loginEmail = document.getElementById("loginEmail");
+var loginPassword = document.getElementById("loginPassword");
+var successModal = document.getElementById("successModal");
+var successOverlay = document.getElementById("successOverlay");
+var successTitle = document.getElementById("successTitle");
+var successMessage = document.getElementById("successMessage");
+var successOkBtn = document.getElementById("successOkBtn");
 
 function openLoginModal() {
+    if (!loginModal || !loginOverlay || !loginError) return;
     loginModal.style.display = "block";
     loginOverlay.style.display = "block";
+    loginError.style.color = "#dc2626";
     loginError.innerText = "";
 }
 
 function closeLoginModal() {
+    if (!loginModal || !loginOverlay || !loginError) return;
     loginModal.style.display = "none";
     loginOverlay.style.display = "none";
+    loginError.style.color = "#dc2626";
+    loginError.innerText = "";
 }
 
-addressToggle.addEventListener("click", openLocationPanel);
-addressToggle.addEventListener("keydown", function (event) {
-    if (event.key === "Enter") {
-        openLocationPanel();
+function openSuccessModal(titleText, messageText) {
+    if (successTitle) successTitle.innerText = titleText;
+    if (successMessage) successMessage.innerText = messageText;
+    if (successModal) successModal.style.display = "block";
+    if (successOverlay) successOverlay.style.display = "block";
+}
+
+function closeSuccessModal() {
+    if (successModal) successModal.style.display = "none";
+    if (successOverlay) successOverlay.style.display = "none";
+}
+
+function validateCircleLoginForm() {
+    if (!loginName || !loginEmail || !loginPassword || !loginError) return;
+    var nameValue = loginName.value.trim();
+    var emailValue = loginEmail.value.trim();
+    var passwordValue = loginPassword.value;
+    loginError.style.color = "#dc2626";
+
+    if (nameValue === "") {
+        loginError.innerText = "Please enter your name.";
+        return;
     }
-});
-locationClose.addEventListener("click", closeLocationPanel);
-locationOverlay.addEventListener("click", closeLocationPanel);
 
-cartToggle.addEventListener("click", openCartModal);
-cartClose.addEventListener("click", closeCartModal);
-cartOverlay.addEventListener("click", closeCartModal);
+    if (
+        emailValue === "" ||
+        emailValue.indexOf("@") === -1 ||
+        emailValue.indexOf(".") === -1
+    ) {
+        loginError.innerText = "Please enter a valid email address.";
+        return;
+    }
 
-loginToggle.addEventListener("click", openLoginModal);
-loginClose.addEventListener("click", closeLoginModal);
-loginOverlay.addEventListener("click", closeLoginModal);
+    if (passwordValue.length < 6) {
+        loginError.innerText = "Password must be at least 6 characters.";
+        return;
+    }
 
-loginSubmit.addEventListener("click", function () {
-    loginError.innerText = "";
-});
+    closeLoginModal();
+    openSuccessModal(
+        "Login Successful",
+        "Welcome " + nameValue + "! Login successful."
+    );
+}
+
+if (loginToggle && loginModal && loginOverlay && loginError) {
+    loginToggle.addEventListener("click", openLoginModal);
+    if (loginClose) loginClose.addEventListener("click", closeLoginModal);
+    loginOverlay.addEventListener("click", closeLoginModal);
+    if (circleLoginForm) {
+        circleLoginForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            validateCircleLoginForm();
+        });
+    }
+}
+
+if (successOkBtn) successOkBtn.addEventListener("click", closeSuccessModal);
+if (successOverlay) successOverlay.addEventListener("click", closeSuccessModal);

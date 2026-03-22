@@ -25,22 +25,13 @@
                     </div>
                     <h1>MedPharma</h1>
                 </div>
-                <div class="logo__2" id="addressToggle" role="button" tabindex="0" aria-label="Open delivery location panel">
-                    <div class="map__logo">
-                        <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-                    </div>
-                    <div class="address">
-                        <p>Delivery Address</p>
-                        <p>Vellore 632403 <i class="fa-solid fa-angle-down" aria-hidden="true"></i></p>
-                    </div>
-                </div>
             </div>
             
             <div class="header__right">
-                <button class="icon-btn" id="cartToggle" aria-label="cart">
-                    <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
-                    <span class="badge" id="cartBadge">0</span>
-                </button>
+                <a href="#plans" class="circle-header-cta">
+                    <i class="fa-solid fa-crown" aria-hidden="true"></i>
+                    Join Circle
+                </a>
                 <button class="login-btn" id="loginToggle" type="button">
                     Login
                     <i class="fa-regular fa-user" aria-hidden="true"></i>
@@ -58,51 +49,7 @@
         </nav>
     </header>
 
-    <!-- Location, cart, login windows -->
-     <div class="location-overlay" id="locationOverlay"></div>
-    <aside class="location-panel" id="locationPanel" aria-label="Delivery location panel">
-        <div class="location-panel__top">
-            <button type="button" class="location-panel__back" id="locationClose" aria-label="Close location panel">
-                <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
-            </button>
-            <h3>Deliver to</h3>
-        </div>
-
-        <button type="button" class="location-panel__btn location-panel__btn--primary">
-            <i class="fa-solid fa-location-crosshairs" aria-hidden="true"></i>
-            Current Location
-        </button>
-
-        <p class="location-panel__or">OR</p>
-
-        <button type="button" class="location-panel__btn location-panel__btn--outline">
-            <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-            Choose a different location
-        </button>
-    </aside>
-
-    <div class="cart-overlay" id="cartOverlay"></div>
-    <div class="cart-modal" id="cartModal" aria-label="Order details popup">
-        <div class="cart-modal__top">
-            <h3>Order Details</h3>
-            <button type="button" class="cart-modal__close" id="cartClose" aria-label="Close order details">
-                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
-            </button>
-        </div>
-
-        <div class="cart-modal__body">
-            <p class="cart-modal__empty" id="cartEmptyText">Your cart is empty. Add items to see order details.</p>
-            <div class="cart-modal__list" id="cartItemsList"></div>
-            <p class="cart-modal__row"><span>Items</span><strong id="cartItemsCount">0</strong></p>
-            <p class="cart-modal__row"><span>Subtotal</span><strong id="cartSubtotal">Rs 0</strong></p>
-            <p class="cart-modal__row"><span>Delivery Fee</span><strong id="cartDeliveryFee">Rs 0</strong></p>
-            <p class="cart-modal__row"><span>Discount</span><strong id="cartDiscount">Rs 0</strong></p>
-            <p class="cart-modal__row cart-modal__row--total"><span>Total</span><strong id="cartTotal">Rs 0</strong></p>
-        </div>
-
-        <button type="button" class="cart-modal__checkout" id="checkoutBtn">Proceed to Checkout</button>
-    </div>
-
+    <!-- Login modal -->
     <div class="login-overlay" id="loginOverlay"></div>
     <div class="login-modal" id="loginModal" aria-label="Login form popup">
         <div class="login-modal__top">
@@ -112,21 +59,30 @@
             </button>
         </div>
 
-        <div class="login-modal__body">
+        <form id="circleLoginForm" class="login-modal__body" novalidate>
             <label for="loginName">Full Name</label>
-            <input type="text" id="loginName" placeholder="Enter your name">
+            <input type="text" id="loginName" name="loginName" placeholder="Enter your name" autocomplete="name">
 
             <label for="loginEmail">Email</label>
-            <input type="email" id="loginEmail" placeholder="Enter your email">
+            <input type="email" id="loginEmail" name="loginEmail" placeholder="Enter your email" autocomplete="email">
 
             <label for="loginPassword">Password</label>
-            <input type="password" id="loginPassword" placeholder="Enter password">
+            <input type="password" id="loginPassword" name="loginPassword" placeholder="Enter password" autocomplete="current-password">
 
             <p class="login-modal__error" id="loginError"></p>
-            <button type="button" class="login-modal__submit" id="loginSubmit">Login Now</button>
-        </div>
+            <button type="submit" class="login-modal__submit" id="loginSubmit">Login Now</button>
+        </form>
     </div>
 
+    <div class="success-overlay" id="successOverlay"></div>
+    <div class="success-modal" id="successModal" aria-label="Login success popup">
+        <div class="success-modal__icon">
+            <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+        </div>
+        <h3 id="successTitle">Successful</h3>
+        <p id="successMessage">Welcome! You have logged in successfully.</p>
+        <button type="button" id="successOkBtn">OK</button>
+    </div>
 
     <!-- Small navbar -->
     <nav class="bg-[#F15A24] flex justify-center border border-[#FFF9F3] ">
@@ -479,9 +435,7 @@
 
 
 
-    <script src="Circle_membership.js">
-       
-    </script>
+    <script src="Circle_membership.js"></script>
 </body>
 
 </html>
